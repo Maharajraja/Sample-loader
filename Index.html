@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://test-mib.mtf.gateway.mastercard.com/checkout/version/61/checkout.js"
+  <script src="https://test-mib.mtf.gateway.mastercard.com/checkout/version/62/checkout.js"
           data-error="errorCallback"
           data-cancel="cancelCallback"
-          ></script>
+          data-complete="completeCallback"></script>
   <script type="text/javascript">
     var params = new URLSearchParams(window.location.search);
     var sessionId = params.get("sessionId");
@@ -20,15 +20,15 @@
       console.log('Payment cancelled');
     }
 
-<!--   function completeCallback(resultIndicator, sessionVersion) {-->
-<!--      console.log('Payment complete');-->
-<!--      console.log('Result Indicator:', resultIndicator);-->
-<!--      console.log('Session Version:', sessionVersion);-->
-<!--      // Redirect to complete handler-->
-<!--      var redirectUrl = "https://test-mib.mtf.gateway.mastercard.com/checkout/receipt/";-->
-<!--&lt;!&ndash;      redirectUrl += `?resultIndicator=${resultIndicator}&sessionVersion=${sessionVersion}`;&ndash;&gt;-->
-<!--      window.location.href = redirectUrl;-->
-<!--    }-->
+   function completeCallback(resultIndicator, sessionVersion) {
+      console.log('Payment complete');
+      console.log('Result Indicator:', resultIndicator);
+      console.log('Session Version:', sessionVersion);
+      // Redirect to complete handler
+      var redirectUrl = "https://test-mib.mtf.gateway.mastercard.com/checkout/receipt/";
+<!--      redirectUrl += `?resultIndicator=${resultIndicator}&sessionVersion=${sessionVersion}`;-->
+      window.location.href = redirectUrl;
+    }
 
     window.onload = function() {
       if (sessionId) {
